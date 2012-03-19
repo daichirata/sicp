@@ -12,6 +12,5 @@
         (cube-root-iter (improve guess x) x)))
   (cube-root-iter 1.0 x))
 
-(cube-root 8)  ==> 2.000004911675504
-
-(cube-root 1729)  ==> 12.00231441503121
+(cube-root 8);=> 2.000004911675504
+(cube-root 1729);=> 12.00231441503121
