@@ -1,0 +1,2 @@
+(use slib)
+(require 'trace)
