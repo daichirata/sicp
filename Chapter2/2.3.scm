@@ -9,3 +9,6 @@
 
 (perimeter rec0)
 (area rec0)
+
+
+
