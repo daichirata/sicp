@@ -1,0 +1,32 @@
+(use gl)
+(use gl.glut)
+(add-load-path ".")
+(load "segment.scm")
+(load "point.scm")
+(load "frame.scm")
+(load "vector.scm")
+(load "painter.scm")
+(load "graphic/wave.scm")
+
+(define frame
+  (make-frame (make-vect -1 -1) (make-vect 2 0) (make-vect 0 2)))
+
+(define (draw-line start-point end-point)
+  (gl-vertex (x-point start-point) (y-point start-point))
+  (gl-vertex (x-point end-point) (y-point end-point)))
+
+(define (display)
+  (gl-clear GL_COLOR_BUFFER_BIT)
+  (gl-color 0.0 0.0 0.0)
+  (gl-begin GL_LINES)
+  ((segments->painter wave) frame)
+  (gl-end)
+  (gl-flush))
+
+(define (main args)
+  (glut-init args)
+  (glut-init-display-mode GLUT_RGBA)
+  (glut-create-window "draw line")
+  (glut-display-func display)
+  (gl-clear-color 1.0 1.0 1.0 1.0)
+  (glut-main-loop))
